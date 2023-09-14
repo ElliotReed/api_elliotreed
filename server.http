@@ -1,0 +1,14 @@
+POST http://localhost:3066/send/contact
+Origin: http://localhost:5173
+content-type: application/json
+
+{
+  "name": "bill",
+  "email": "bill@thecat.com",
+  "message": "acckkk!!!!",
+  "type": "dev"
+}
+
+###
+GET http://localhost:3066/key/weatherton
+Origin: http://localhost:5173

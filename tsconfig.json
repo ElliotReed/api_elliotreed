@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "baseUrl": "./src",
+    "sourceMap": true,
+    "target": "esnext",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true
+  },
+}

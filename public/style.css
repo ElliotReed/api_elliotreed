@@ -1,0 +1,43 @@
+body,
+html {
+	font-size: 100%;
+	background-color: #fdfdfd;
+	margin: 0;
+	padding: 0;
+}
+
+.page-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	min-width: 100vw;
+	min-height: 100vh;
+	overflow: hidden;
+	background-color: hsl(0, 10%, 32%);
+}
+
+.content-wrapper {
+	max-width: 680px;
+	margin: 0 auto;
+	padding: 1rem;
+}
+
+.content-wrapper h1 {
+  display: inline;
+	background-color:hsl(46, 26%, 83%);
+	padding: 50vh 1rem 1rem;
+  color: hsl(124, 7%, 41%);
+}
+
+.content-wrapper p {
+	font-size: 1.618rem;
+	color: 	hsl(46, 26%, 83%);
+  ;
+}
+
+.content-wrapper a {
+	height: 3rem;
+	background-color:hsl(46, 26%, 83%);
+	padding: 0 1rem 50vh;
+	color: hsl(124, 7%, 41%);
+}
