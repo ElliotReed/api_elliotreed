@@ -1,6 +1,6 @@
 # The Elliot Reed Server
 
-[GitHub Repository](https://github.com/ElliotReed/elliotreed_server)
+[GitHub Repository](https://github.com/ElliotReed/api_elliotreed)
 
 [api.elliotreed.net](https://api.elliotreed.net)
 

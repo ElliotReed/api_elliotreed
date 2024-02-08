@@ -73,3 +73,6 @@ typings/
 .serverless
 
 dist
+
+Notes.md
+Deployment.md
