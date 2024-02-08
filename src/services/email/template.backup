@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
   <meta name="x-apple-disable-message-reformatting"> <!-- Disable auto-scale in iOS 10 Mail entirely -->
-  <title>{title}</title> <!-- The title tag shows in email notifications, like Android 4.4. -->
+  <title>${title}</title> <!-- The title tag shows in email notifications, like Android 4.4. -->
   <!-- Web Font / @font-face : BEGIN -->
   <!-- NOTE: If web fonts are not required, lines 10 - 27 can be safely removed. -->
 
@@ -188,13 +188,13 @@
 
 </head>
 
-<body width="100%" bgcolor="{bgColor}" style="margin: 0;">
-  <div style="width: 100%; background: {bgColor}; text-align: left; ">
+<body width="100%" bgcolor="#222222" style="margin: 0;">
+  <div style="width: 100%; background: #222222; text-align: left; ">
 
     <!-- Visually Hidden Preheader Text : BEGIN -->
     <div
       style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;font-family: sans-serif;">
-      {preheaderText}
+      ${preheaderText}
     </div>
     <!-- Visually Hidden Preheader Text : END -->
 
@@ -218,10 +218,10 @@
 
         <!-- Header : BEGIN -->
         <!-- Hero Image, Flush : BEGIN -->
-        <tr style="display: block; width: 100%; max-width: 614px; padding: 16px 32px;">
+        <tr>
           <td style="padding: 1em; background-color: #fdfdfd;">
             <a href="https://lifeManager.elliotreed.net">
-              <img src="{heroImage}" aria-hidden="true" width="680" height="200" alt="alt_text" border="0"
+              <img src="../images/logo.svg" aria-hidden="true" width="680" height="200" alt="alt_text" border="0"
                 align="center" class="fluid"
                 style="width: 100%; max-width: 680px; height: auto; background: #fdfdfd; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; display:block"
                 class="g-img">
@@ -265,8 +265,7 @@
                   style="padding: 0; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #777777; text-align: center;">
                   <p>${footerText}<br>
                     ${brand}<br>
-                    <a href=${siteURL}>${brand}</a>
-                  </p>
+                    <a href=${siteURL}>${brand}</a></p>
                 </td>
               </tr>
             </table>

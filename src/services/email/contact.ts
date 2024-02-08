@@ -17,7 +17,7 @@ export function contactMessage(data: contactFormData) {
 
   const content = `
     <tr>
-      <td bgcolor="${templateOptions.bgcolor}"
+      <td bgcolor="${templateOptions.bgColor}"
         style="padding: 32px 32px 32px; font-family: sans-serif; font-size: 16px; line-height: 24px; color: ${templateOptions.textColor}; text-align: left;">
         <p>You have a new message from ${data.name}.</p>
         <p style="height: 300px;">${data.message}</p>

@@ -1,10 +1,10 @@
 import { TemplateOptions } from './templateOptions';
 
 export function emailTemplate(email: string, content: string, type: string) {
-	const templateOptions = new TemplateOptions();
-	templateOptions.email = email;
-	const emailBody = `
-    <!DOCTYPE html>
+  const templateOptions = new TemplateOptions();
+  templateOptions.email = email;
+  const emailBody = `
+  <!DOCTYPE html>
     <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
       xmlns:o="urn:schemas-microsoft-com:office:office">
 
@@ -197,8 +197,8 @@ export function emailTemplate(email: string, content: string, type: string) {
 
     </head>
 
-    <body width="100%" bgcolor="${templateOptions.bgcolor}" style="margin: 0;">
-      <div style="width: 100%; background: ${templateOptions.bgcolor}; text-align: left; ">
+    <body width="100%" bgColor="${templateOptions.bgColor}" style="margin: 0;">
+      <div style="width: 100%; background: ${templateOptions.bgColor}; text-align: left; ">
 
       <!-- Visually Hidden Preheader Text : BEGIN -->
       <div
@@ -232,11 +232,11 @@ export function emailTemplate(email: string, content: string, type: string) {
             <td>
               <!-- //////////////////// -->
               <img src="${templateOptions.heroImage}" aria-hidden="true" width="96" height="96" alt="logo" border="0" align="center"
-                style="height: auto; background: ${templateOptions.bgcolor};"
+                style="height: auto; background: ${templateOptions.bgColor};"
                 class="g-img">
             </td>
             <td>
-              <p style="height: auto; background: ${templateOptions.bgcolor}; padding: 32px 0 0 0; font-family: sans-serif; font-size: 36px; line-height: 96px; color: ${templateOptions.brandColor};">
+              <p style="height: auto; background: ${templateOptions.bgColor}; padding: 32px 0 0 0; font-family: sans-serif; font-size: 36px; line-height: 96px; color: ${templateOptions.brandColor};">
                 <span style="font-weight: bold; text-transform: uppercase;">Elliot Reed</span> <span style="font-size: 24px; font-style: italic; text-transform: lowercase">${type}</span>
               </p>
             </td>
@@ -269,5 +269,5 @@ export function emailTemplate(email: string, content: string, type: string) {
     </html>
   `;
 
-	return emailBody;
+  return emailBody;
 }

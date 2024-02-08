@@ -7,8 +7,12 @@
   <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
   <meta name="x-apple-disable-message-reformatting"> <!-- Disable auto-scale in iOS 10 Mail entirely -->
-  <title>{title}</title> <!-- The title tag shows in email notifications, like Android 4.4. -->
+
+  <!-- The title tag shows in email notifications, like Android 4.4. -->
+  <title>{title}</title>
+
   <!-- Web Font / @font-face : BEGIN -->
+
   <!-- NOTE: If web fonts are not required, lines 10 - 27 can be safely removed. -->
 
   <!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
@@ -18,11 +22,11 @@
         font-family: sans-serif !important;
       }
     </style>
-    <![endif]-->
+  <![endif]-->
 
   <!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
   <!--[if !mso]><!-->
-  <!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
+    <!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
   <!--<![endif]-->
 
   <!-- Web Font / @font-face : END -->
@@ -176,103 +180,77 @@
     }
   </style>
 
-  <!-- What it does: Makes background images in 72ppi Outlook render at correct size. -->
-  <!--[if gte mso 9]>
-  <xml>
-    <o:OfficeDocumentSettings>
-      <o:AllowPNG/>
-      <o:PixelsPerInch>96</o:PixelsPerInch>
-    </o:OfficeDocumentSettings>
-  </xml>
-  <![endif]-->
+<!-- What it does: Makes background images in 72ppi Outlook render at correct size. -->
+<!--[if gte mso 9]>
+<xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG/>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
 
 </head>
 
-<body width="100%" bgcolor="{bgColor}" style="margin: 0;">
-  <div style="width: 100%; background: {bgColor}; text-align: left; ">
+<body width="100%" bgcolor="{bgcolor}" style="margin: 0;">
+  <div style="width: 100%; background: {bgcolor}; text-align: left; ">
 
-    <!-- Visually Hidden Preheader Text : BEGIN -->
-    <div
-      style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;font-family: sans-serif;">
-      {preheaderText}
-    </div>
-    <!-- Visually Hidden Preheader Text : END -->
+  <!-- Visually Hidden Preheader Text : BEGIN -->
+  <div
+    style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;font-family: sans-serif;">
+    <!-- //////////////////// -->
+    {preheaderText}
+  </div>
+  <!-- Visually Hidden Preheader Text : END -->
 
-    <!--
+  <!--
     Set the email width. Defined in two places:
     1. max-width for all clients except Desktop Windows Outlook, allowing the email to squish on narrow but never go wider than 680px.
     2. MSO tags for Desktop Windows Outlook enforce a 680px width.
     Note: The Fluid and Responsive templates have a different width (600px). The hybrid grid is more "fragile", and I've found that 680px is a good width. Change with caution.
   -->
-    <div style="max-width: 680px; margin: auto;" class="email-container">
-      <!--[if mso]>
-      <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="680" align="center">
-        <tr>
-          <td>
-            <![endif]-->
-      s
-
-      <!-- Email Body : BEGIN -->
-      <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center"
-        width="100%" style="max-width: 680px;" class="email-container">
-
-        <!-- Header : BEGIN -->
-        <!-- Hero Image, Flush : BEGIN -->
-        <tr style="display: block; width: 100%; max-width: 614px; padding: 16px 32px;">
-          <td style="padding: 1em; background-color: #fdfdfd;">
-            <a href="https://lifeManager.elliotreed.net">
-              <img src="{heroImage}" aria-hidden="true" width="680" height="200" alt="alt_text" border="0"
-                align="center" class="fluid"
-                style="width: 100%; max-width: 680px; height: auto; background: #fdfdfd; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555; display:block"
-                class="g-img">
-            </a>
-          </td>
-        </tr>
-        <!-- Hero Image, Flush : END -->
-        <!-- Header : END -->
+  <div style="max-width: 680px; margin: auto;" class="email-container">
+    <!--[if mso]>
+    <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="680" align="center">
+      <tr>
+        <td>
+    <![endif]-->
 
 
-        <!-- Verify Registration : BEGIN -->
-        <tr>
-          <td bgcolor="#fdfdfd"
-            style="padding: 10px 40px 0px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #777777; text-align: center;">
-            <p>
-              Click here to complete your registration.
-            </p>
-            <p style="margin: 20px 0 20px 0;"">
-              <a style=" border-radius: 3px; padding: 15px 30px; background-color:#dfdfdf; color: #fdfdfd;
-              text-decoration: none; white-space: nowrap; " href=" ${confirmationURL}">Verify</a>
-            </p margin: 200px 0 20px 0;>
-          </td>
-        </tr>
-        <!-- Verify Registration : END -->
+    <!-- Email Body : BEGIN -->
+    <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center"
+      width="100%" style="max-width: 680px;" class="email-container">
 
-        <tr style="border-top: 1px solid #eeeeee;">
-          <td bgcolor="#fdfdfd">
-            <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="100%">
+      <!-- Header : BEGIN -->
+      <!-- Hero Image, Flush : BEGIN -->
+      <tr style="display: block; width: 100%; max-width: 614px; padding: 16px 32px;">
+        <td>
+          <img src="{heroImage}" aria-hidden="true" width="96" height="96" alt="logo" border="0" align="center"
+            style="height: auto; background: {bgcolor};"
+            class="g-img">
+        </td>
+        <td>
+          <p style="height: auto; background: {bgcolor}; padding: 32px 0 0 0; font-family: sans-serif; font-size: 36px; line-height: 96px; color: {brandColor};">
+            <span style="font-weight: bold; text-transform: uppercase;">Elliot Reed</span> <span style="font-size: 24px; font-style: italic; text-transform: lowercase">{type}</span>
+          </p>
+        </td>
+      </tr>
+      <!-- Hero Image, Flush : END -->
+      <!-- Header : END -->
 
-              <tr>
-                <td
-                  style="padding: 10px 40px 0px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #777777; text-align: center;">
-                  <!-- <p>${text} -->
-                  <p>Copyright 2020 lifeManager Inc. All rights reserved.
-                  </p>
-                </td>
-              </tr>
+      <!-- HTML Content : BEGIN -->
+      {content}
+      <!-- HTML Content : END -->
 
-              <tr>
-                <td
-                  style="padding: 0; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #777777; text-align: center;">
-                  <p>${footerText}<br>
-                    ${brand}<br>
-                    <a href=${siteURL}>${brand}</a>
-                  </p>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-
+      <!-- Footer : BEGIN -->
+      <tr
+        style="background: {brandColor};">
+        <td
+        style="padding: 32px; font-family: sans-serif; font-size: 14px; line-height: 20px; color: {lightColor}; text-align: center;">
+        <p>{footerText}<br>
+        <a href={siteURL} style="color: {lightColor}">{brand}</a></p>
+        </td>
+      <!-- Footer : END -->
       </table>
       <!-- Email Body : END -->
     </div>
@@ -280,3 +258,4 @@
 </body>
 
 </html>
+

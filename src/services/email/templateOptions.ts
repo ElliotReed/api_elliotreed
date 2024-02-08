@@ -7,7 +7,7 @@ export class TemplateOptions {
 	footerText: string;
 	brand: string;
 	siteURL: string;
-	bgcolor: string;
+	bgColor: string;
 	brandColor: string;
 	textColor: string;
 	lightColor: string;
@@ -22,7 +22,7 @@ export class TemplateOptions {
 		this.footerText = '\u00A9 Elliot Reed';
 		this.brand = 'elliotreed.net';
 		this.siteURL = 'https://elliotreed.net';
-		this.bgcolor = `#fdfdfd`;
+		this.bgColor = `#fdfdfd`;
 		this.brandColor = `#2e3832`;
 		this.textColor = `#382e31`;
 		this.lightColor = `#e4ddcd`;
