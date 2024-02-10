@@ -12,8 +12,7 @@ export type ContactFormData = {
   message: string,
 }
 
-export type EmailConfig = {
-  nodeEmail: NodeEmail;
+export type TemplateValues = {
   title: string;
   preheaderText: string;
   heroImage: string;
@@ -24,5 +23,11 @@ export type EmailConfig = {
   brandColor: string;
   textColor: string;
   lightColor: string;
+  [key: string]: string;
+}
+
+export type EmailConfig = {
+  nodeEmail: NodeEmail;
+  templateValues: TemplateValues;
   incomingData?: ContactFormData | null;
 }
