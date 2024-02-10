@@ -1,22 +1,30 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { EmailConfig } from './email.types';
+import { EmailConfig, TemplateValues } from './email.types';
 
 const BASIC_TEMPLATE_FILE_PATH = path.join(__dirname, 'templates/basic.html');
 const CONTACT_TEMPLATE_FILE_PATH = path.join(__dirname, 'templates/contentTemplates/contact.html');
 
-function insertValuesIntoHtmlTemplate(template: string, options: EmailConfig): string {
-  template = template.replace(/{title}/g, options.title);
-  template = template.replace(/{siteURL}/g, options.siteURL);
-  template = template.replace(/{footerText}/g, options.footerText);
-  template = template.replace(/{preheaderText}/g, options.preheaderText);
-  template = template.replace(/{heroImage}/g, options.heroImage);
-  template = template.replace(/{brand}/g, options.brand);
-  template = template.replace(/{bgColor}/g, options.bgColor);
-  template = template.replace(/{brandColor}/g, options.brandColor);
-  template = template.replace(/{textColor}/g, options.textColor);
-  template = template.replace(/{lightColor}/g, options.lightColor);
+export function insertValuesIntoHtmlTemplate(template: string, options: TemplateValues): string {
+  const findRegex = /\{\{([^}]+)\}\}/g;
+  let matches = [];
+  let match;
+
+  while ((match = findRegex.exec(template)) !== null) {
+    matches.push(match[1]);
+  }
+
+  const uniqueMatches = [...new Set(matches)]
+
+  for (const element of uniqueMatches) {
+    if (options[element] !== undefined) {
+      const regex = new RegExp('{{' + element + '}}', 'g');
+      template = template.replace(regex, options[element]);
+    } else {
+      console.error(`No value found for placeholder ${element}`);
+    }
+  }
 
   return template;
 }
@@ -27,8 +35,8 @@ function templateLoader(templatePath: string) {
 }
 
 function addIncomingDataToContentTemplate(contentTemplateString: string, emailConfig: EmailConfig): string {
-  contentTemplateString = contentTemplateString.replace(/{name}/g, emailConfig.incomingData?.name ?? '')
-  contentTemplateString = contentTemplateString.replace(/{message}/g, emailConfig.incomingData?.message ?? '');
+  contentTemplateString = contentTemplateString.replace(/{{name}}/g, emailConfig.incomingData?.name ?? '')
+  contentTemplateString = contentTemplateString.replace(/{{message}}/g, emailConfig.incomingData?.message ?? '');
   return contentTemplateString;
 }
 
@@ -38,9 +46,9 @@ export default function getHTML(emailConfig: EmailConfig): string {
 
   contentTemplateString = addIncomingDataToContentTemplate(contentTemplateString, emailConfig);
 
-  htmlTemplateString = htmlTemplateString.replace(/{content}/g, contentTemplateString);
+  htmlTemplateString = htmlTemplateString.replace(/{{content}}/g, contentTemplateString);
 
-  htmlTemplateString = insertValuesIntoHtmlTemplate(htmlTemplateString, emailConfig);
+  htmlTemplateString = insertValuesIntoHtmlTemplate(htmlTemplateString, emailConfig.templateValues);
 
   return htmlTemplateString
 }
