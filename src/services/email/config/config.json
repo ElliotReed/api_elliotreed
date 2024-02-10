@@ -1,5 +1,22 @@
 {
   "elliotreed.net": {
-    "from": "elliotreed.net <server@elliotreed.net>"
+    "nodeEmail": {
+      "from": "elliotreed.net <server@elliotreed.net>",
+      "to": "dev@elliotreed.net",
+      "subject": "",
+      "text": "",
+      "html": ""
+    },
+    "title": "",
+    "preheaderText": "",
+    "heroImage": "https://elliotreed.net/icons/icon-96x96.png",
+    "footerText": "\u00A9 Elliot Reed",
+    "brand": "elliotreed.net",
+    "siteURL": "https://elliotreed.net",
+    "bgColor": "#fdfdfd",
+    "brandColor": "#2e3832",
+    "textColor": "#382e31",
+    "lightColor": "#e4ddcd",
+    "incomingData": null
   }
 }

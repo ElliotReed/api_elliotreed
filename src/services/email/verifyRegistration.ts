@@ -1,4 +1,4 @@
-import { emailTemplate } from './template';
+import { emailTemplate } from './getHTML';
 import { sendEmail } from './sendEmail';
 import { EmailOptions } from './emailOptions';
 
