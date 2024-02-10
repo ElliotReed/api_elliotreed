@@ -9,7 +9,7 @@
   <meta name="x-apple-disable-message-reformatting"> <!-- Disable auto-scale in iOS 10 Mail entirely -->
 
   <!-- The title tag shows in email notifications, like Android 4.4. -->
-  <title>{title}</title>
+  <title>{{title}}</title>
 
   <!-- Web Font / @font-face : BEGIN -->
 
@@ -192,14 +192,14 @@
 
 </head>
 
-<body width="100%" bgcolor="{bgColor}" style="margin: 0;">
-  <div style="width: 100%; background: {bgcolor}; text-align: left; ">
+<body width="100%" bgcolor="{{bgColor}}" style="margin: 0;">
+  <div style="width: 100%; background: {{bgColor}}; text-align: left; ">
 
   <!-- Visually Hidden Preheader Text : BEGIN -->
   <div
     style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;font-family: sans-serif;">
     <!-- //////////////////// -->
-    {preheaderText}
+    {{preheaderText}}
   </div>
   <!-- Visually Hidden Preheader Text : END -->
 
@@ -225,12 +225,12 @@
       <!-- Hero Image, Flush : BEGIN -->
       <tr style="display: block; width: 100%; max-width: 614px; padding: 16px 32px;">
         <td>
-          <img src="{heroImage}" aria-hidden="true" width="96" height="96" alt="logo" border="0" align="center"
-            style="height: auto; background: {bgcolor};"
+          <img src="{{heroImage}}" aria-hidden="true" width="96" height="96" alt="logo" border="0" align="center"
+            style="height: auto; background: {{bgColor}};"
             class="g-img">
         </td>
         <td>
-          <p style="height: auto; background: {bgcolor}; padding: 32px 0 0 0; font-family: sans-serif; font-size: 36px; line-height: 96px; color: {brandColor};">
+          <p style="height: auto; background: {{bgColor}}; padding: 32px 0 0 0; font-family: sans-serif; font-size: 36px; line-height: 96px; color: {{brandColor}};">
             <span style="font-weight: bold; text-transform: uppercase;">Elliot Reed</span>
           </p>
         </td>
@@ -239,16 +239,16 @@
       <!-- Header : END -->
 
       <!-- HTML Content : BEGIN -->
-      {content}
+      {{content}}
       <!-- HTML Content : END -->
 
       <!-- Footer : BEGIN -->
       <tr
-        style="background: {brandColor};">
+        style="background: {{brandColor}};">
         <td
-        style="padding: 32px; font-family: sans-serif; font-size: 14px; line-height: 20px; color: {lightColor}; text-align: center;">
-        <p>{footerText}<br>
-        <a href={siteURL} style="color: {lightColor}">{brand}</a></p>
+        style="padding: 32px; font-family: sans-serif; font-size: 14px; line-height: 20px; color: {{lightColor}}; text-align: center;">
+        <p>{{footerText}}<br>
+        <a href={{siteURL}} style="color: {{lightColor}}">{brand}</a></p>
         </td>
       <!-- Footer : END -->
       </table>
