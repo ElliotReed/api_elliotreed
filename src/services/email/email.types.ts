@@ -26,8 +26,12 @@ export type TemplateValues = {
   [key: string]: string;
 }
 
+export type IncomingData = {
+  [key: string]: string;
+}
+
 export type EmailConfig = {
   nodeEmail: NodeEmail;
   templateValues: TemplateValues;
-  incomingData?: ContactFormData | null;
+  incomingData?: IncomingData | null;
 }
