@@ -1,11 +1,11 @@
 import express from 'express';
 
-import key from './key';
+import weatherton from './weatherton';
 import email from './email';
 
 const router = express.Router();
 
-router.use('/key', key);
+router.use('/weatherton', weatherton);
 router.use('/send', email);
 
 export default router;
