@@ -1,3 +1,14 @@
+# Build for distribution, deployment
+dist
+
+# Created by the program on use
+data
+
+# Private info
+Notes.md
+Deployment.md
+OpenWeather.md
+
 # Logs
 logs
 *.log
@@ -71,8 +82,3 @@ typings/
 
 # Serverless directories
 .serverless
-
-dist
-
-Notes.md
-Deployment.md
