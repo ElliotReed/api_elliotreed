@@ -30,12 +30,20 @@ Development utilities:
 
 ## Test
 
-```
+```console
 npm run test
 ```
 
 ## Development
 
-```
+```console
 npm run dev
 ```
+
+## API
+
+### OpenWeather
+
+#### Subscriptions
+
+* [One Call API 3.0](https://openweathermap.org/api/one-call-3)
