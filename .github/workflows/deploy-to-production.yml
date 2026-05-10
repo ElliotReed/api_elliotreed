@@ -55,7 +55,8 @@ jobs:
             --exclude '.github' \
             --exclude '.env*' \
             --exclude '*.log' \
-            ./dist/ ./data ./public package.json package-lock.json \
+            --exclude 'data' \
+            ./dist/ ./public package.json package-lock.json \
             ${{ env.VPS_USER }}@${{ env.VPS_HOST }}:${{ env.REMOTE_APP_PATH }}/
 
       - name: Install dependencies and restart
