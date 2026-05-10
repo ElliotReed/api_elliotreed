@@ -7,12 +7,17 @@ import cors from 'cors';
 import * as middlewares from './middlewares';
 import api from './api';
 
+const corsOptions = {
+  origin: process.env.ALLOWED_ORIGINS?.split(','),
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}
 
 const app = express();
 
 app.use(morgan('dev'));
 app.use(helmet());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
