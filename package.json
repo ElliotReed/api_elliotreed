@@ -1,7 +1,7 @@
 {
   "name": "elliotreed_server",
   "version": "1.2.0",
-  "description": "server for elliotreed.net",
+  "description": "server for elliotreed.dev",
   "main": "src/index.ts",
   "scripts": {
     "start": "ts-node src/index.ts",
@@ -29,9 +29,9 @@
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
-    "@types/jest": "^29.5.13",
+    "@types/jest": "^29.5.14",
     "@types/morgan": "^1.9.9",
-    "@types/node": "^22.7.7",
+    "@types/node": "^22.8.0",
     "@types/nodemailer": "^6.4.16",
     "@types/supertest": "^6.0.2",
     "copyfiles": "^2.4.1",

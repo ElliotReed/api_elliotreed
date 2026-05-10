@@ -1,0 +1,74 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  # VPS connection
+  VPS_HOST: ${{ secrets.VPS_HOST }}
+  VPS_USER: ${{ secrets.VPS_USER }}
+
+  # Project config
+  APP_NAME: elliotreeddev_api
+  PROCESS_NAME: elliotreeddev-api
+  NODE_VERSION: "24"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Set remote path
+        run: echo "REMOTE_APP_PATH=~/apps/${{ env.APP_NAME }}" >> $GITHUB_ENV
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Setup SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
+
+      - name: Add SSH host to known_hosts
+        run: ssh-keyscan ${{ env.VPS_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy via rsync
+        run: |
+          rsync -avz --delete \
+            --exclude 'node_modules' \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude '.env*' \
+            --exclude '*.log' \
+            ./dist/ ./public package.json package-lock.json \
+            ${{ env.VPS_USER }}@${{ env.VPS_HOST }}:${{ env.REMOTE_APP_PATH }}/
+
+      - name: Install dependencies and restart
+        run: |
+          ssh ${{ env.VPS_USER }}@${{ env.VPS_HOST }} << 'ENDSSH'
+            cd ${{ env.REMOTE_APP_PATH }}
+            npm ci --omit=dev
+            pm2 delete ${{ env.PROCESS_NAME }} || true
+            NODE_ENV=production pm2 start index.js --name ${{ env.PROCESS_NAME }}
+            pm2 save
+          ENDSSH
+
+      - name: Deployment summary
+        run: |
+          echo "🚀 Deployed to ${{ env.VPS_HOST }}"
+          echo "📁 App: ${{ env.APP_NAME }}"

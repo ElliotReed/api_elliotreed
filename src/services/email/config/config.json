@@ -1,7 +1,7 @@
 {
   "elliotreed.net": {
     "nodeEmail": {
-      "from": "elliotreed.net <server@elliotreed.net>",
+      "from": "elliotreed.net",
       "to": "dev@elliotreed.net",
       "subject": "",
       "text": "",
